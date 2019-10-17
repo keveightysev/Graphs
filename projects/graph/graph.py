@@ -26,6 +26,7 @@ class Graph:
         while queue.size() > 0:
             vertex = queue.dequeue()
             if vertex not in visited:
+                print(vertex)
                 visited.add(vertex)
                 for vert in self.vertices[vertex]:
                     queue.enqueue(vert)
@@ -37,6 +38,7 @@ class Graph:
         while stack.size() > 0:
             vertex = stack.pop()
             if vertex not in visited:
+                print(vertex)
                 visited.add(vertex)
                 for vert in self.vertices[vertex]:
                     stack.push(vert)
@@ -45,6 +47,7 @@ class Graph:
         if visited is None:
             visited = set()
         if starting_vertex not in visited:
+            print(starting_vertex)
             visited.add(starting_vertex)
             for vertex in self.vertices[starting_vertex]:
                 self.dft_recursive(vertex, visited)
