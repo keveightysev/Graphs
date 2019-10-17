@@ -20,11 +20,15 @@ class Graph:
             raise IndexError('Cannot create edge from vertices')
 
     def bft(self, starting_vertex):
-        """
-        Print each vertex in breadth-first order
-        beginning from starting_vertex.
-        """
-        pass  # TODO
+        queue = Queue()
+        visited = set()
+        queue.enqueue(starting_vertex)
+        while queue.size() > 0:
+            vertex = queue.dequeue()
+            if vertex not in visited:
+                visited.add(vertex)
+                for vert in self.vertices[vertex]:
+                    queue.enqueue(vert)
 
     def dft(self, starting_vertex):
         """
